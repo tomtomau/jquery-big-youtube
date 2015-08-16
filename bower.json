@@ -1,0 +1,23 @@
+{
+  "name": "jquery-big-youtube",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tomtomau/jquery-big-youtube",
+  "authors": [
+    "Tom Newby <me@tomnewby.net>"
+  ],
+  "description": "jQuery plugin for using YouTube videos as big background videos",
+  "main": "index.js",
+  "keywords": [
+    "jquery",
+    "youtube"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ]
+}
