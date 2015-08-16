@@ -33,7 +33,7 @@
       new YT.Player(targetId, {
         width: $target.width(),
         height: $target.height(),
-        videoId: 'YI8TP21uWXM',
+        videoId: '6snxouNdubg',
         playerVars: {
           controls: 0,
           showinfo: 0,

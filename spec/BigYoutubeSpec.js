@@ -51,6 +51,9 @@ describe("Basic plugin bootstrapping", function(){
   });
 });
 
+/**
+ * Testing a single player, selected via ID
+ */
 describe("Single Id Target", function(){
   var testTargetId = 'single-id-target';
 
@@ -88,6 +91,8 @@ describe("Single Id Target", function(){
       it("replaces target with iframe", function(){
         expect($('#' + testTargetId).is('iframe')).toBe(true);
       });
+
+      // @TODO: Can we investigate if this works any further?
     });
   });
 });
