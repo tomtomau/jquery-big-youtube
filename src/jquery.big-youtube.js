@@ -13,7 +13,7 @@
     }
   };
 
-  $.fn.bigYoutube = function(options) {
+  $.fn.bigYouTube = function(options) {
     var createPlayerObj = function(targetId){
       var onPlayerReady = function(e){
         e.target.playVideo();
@@ -58,7 +58,7 @@
     };
 
     // Check if YT is defined
-    if (typeof YT == "undefined") {
+    if (typeof YT == "undefined" && $('script[src="http://www.youtube.com/iframe_api"]').length == 0) {
       // Load the iFrame API
       var tag = document.createElement('script');
       tag.src = "http://www.youtube.com/iframe_api";
@@ -78,7 +78,7 @@
 
       // Create a random id if not already created
       if (typeof $videoTarget.attr('id') == 'undefined'){
-        targetId = "bigYoutube" + Date.now().toString() + Math.floor((5 * Math.random()));
+        targetId = "bigYouTube" + Date.now().toString() + Math.floor((5 * Math.random()));
         $videoTarget.attr('id', targetId);
       }
 

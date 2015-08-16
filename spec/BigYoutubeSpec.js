@@ -17,9 +17,8 @@ function singleIdTargetSandbox(options){
 }
 
 describe("Basic plugin bootstrapping", function(){
-
-  it("creates jQuery plugin named 'bigYoutube'", function(){
-    expect(typeof $.fn.bigYoutube).toBe("function");
+  it("creates jQuery plugin named 'bigYouTube'", function(){
+    expect(typeof $.fn.bigYouTube).toBe("function");
   });
 
   describe("YouTube API", function(){
@@ -28,9 +27,9 @@ describe("Basic plugin bootstrapping", function(){
     });
 
     // Instantiate Big Youtube
-    $("#bootstrap-target").bigYoutube();
+    $("#bootstrap-target").bigYouTube();
 
-    it("bigYoutube adds the script tag", function(){
+    it("bigYouTube adds the script tag", function(){
       expect($('script[src="http://www.youtube.com/iframe_api"]').length).toBe(1);
     });
 
@@ -56,8 +55,7 @@ describe("Single Id Target", function(){
   var testTargetId = 'single-id-target';
 
   // Bootstrap some DOM
-  beforeEach(
-    singleIdTargetSandbox({
+  beforeEach(singleIdTargetSandbox({
       id: testTargetId
     })
   );
@@ -67,12 +65,29 @@ describe("Single Id Target", function(){
     $("#" + testTargetId).remove();
   });
 
-
   it("creates a target with the id of " + testTargetId, function(){
-    expect($('#single-id-target').length).toBe(1);
+    expect($('#'+testTargetId).length).toBe(1);
   });
 
-  it("creates a target with the id of " + testTargetId, function(){
-    expect($('#single-id-target').length).toBe(1);
+  describe("plays video", function(done){
+    beforeEach(function(){
+      var $target = $('#' + testTargetId);
+      $target.bigYouTube();
+    });
+
+    describe("builds player", function(){
+      beforeEach(function(done){
+        var intervalId = setInterval(function(){
+          if($('#' + testTargetId).is('iframe')){
+            clearInterval(intervalId);
+            done();
+          }
+        }, 250);
+      });
+
+      it("replaces target with iframe", function(){
+        expect($('#' + testTargetId).is('iframe')).toBe(true);
+      });
+    });
   });
 });
