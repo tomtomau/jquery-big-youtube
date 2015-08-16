@@ -1,3 +1,9 @@
+/**
+ * jQuery.big-youtube
+ * jQuery plugin for using YouTube videos as big background videos.
+ * Licensed under MIT
+ * Read more: https://github.com/tomtomau/jquery-big-youtube
+ */
 'use strict';
 (function($, window){
   window.youtubeQueue = [];
