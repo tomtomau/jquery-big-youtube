@@ -30,7 +30,7 @@ describe("Basic plugin bootstrapping", function(){
     // Instantiate Big Youtube
     $("#bootstrap-target").bigYoutube();
 
-    it("adds the script tag", function(){
+    it("bigYoutube adds the script tag", function(){
       expect($('script[src="http://www.youtube.com/iframe_api"]').length).toBe(1);
     });
 
@@ -45,7 +45,7 @@ describe("Basic plugin bootstrapping", function(){
         }, 250);
       });
 
-      it("include the YT Global", function(){
+      it("YouTube API exposees the YT Global", function(){
         expect(typeof YT).toBe('object');
       });
     });
@@ -76,19 +76,3 @@ describe("Single Id Target", function(){
     expect($('#single-id-target').length).toBe(1);
   });
 });
-
-//describe("A suite", function() {
-//  //beforeEach(singleTargetSandbox());
-//
-//  //it("creates simple target", function(){
-//  //  console.log($('.my-target').attr('id'));
-//  //});
-//
-//  it("creates jQuery plugin", function(){
-//    expect(typeof $.fn.bigYoutube).toBe("function");
-//  });
-//
-//  it("creates the youtube api", function(){
-//
-//  });
-//});
