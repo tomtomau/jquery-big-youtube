@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/tomtomau/jquery-big-youtube/issues"
   },
-  "homepage": "https://github.com/tomtomau/jquery-big-youtube"
+  "homepage": "https://github.com/tomtomau/jquery-big-youtube",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jasmine": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
 }
