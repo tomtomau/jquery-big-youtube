@@ -22,11 +22,14 @@
     $.fn.bigYouTube = function(options) {
         var createPlayerObj = function(targetId){
             var onPlayerReady = function(e){
+                $(e.target.f).trigger('bigyoutube.loading');
                 e.target.playVideo();
 
                 if(settings.mute){
                     e.target.mute();
                 }
+
+
             };
 
             var onPlayerStateChange = function(state){
@@ -35,6 +38,7 @@
 
                     // Add class for loaded
                     $frame.addClass('bigyoutube-loaded');
+                    $frame.trigger('bigyoutube.loaded');
                 }else if (state.data === 0) {
                     state.target.seekTo(0);
                 }
