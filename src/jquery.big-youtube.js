@@ -72,7 +72,7 @@
         };
 
         // Check if YT is defined
-        if (typeof YT == "undefined" && $('script[src="http://www.youtube.com/iframe_api"]').length == 0) {
+        if (typeof YT == "undefined" && $('script[src="//www.youtube.com/iframe_api"]').length == 0) {
             // Load the iFrame API
             var tag = document.createElement('script');
             tag.src = "http://www.youtube.com/iframe_api";
@@ -84,7 +84,8 @@
 
         var settings = $.extend({
             videoId: 'ZCAnLxRvNNc',
-            mute: true
+            mute: true,
+
         }, options);
 
         this.each(function(){

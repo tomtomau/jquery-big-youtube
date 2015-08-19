@@ -30,7 +30,11 @@ describe("Basic plugin bootstrapping", function(){
     $("#bootstrap-target").bigYouTube();
 
     it("bigYouTube adds the script tag", function(){
-      expect($('script[src="http://www.youtube.com/iframe_api"]').length).toBe(1);
+      expect(
+        $('script[src="//www.youtube.com/iframe_api"]').length > 0 ||
+        $('script[src="http://www.youtube.com/iframe_api"]').length > 0 ||
+        $('script[src="https://www.youtube.com/iframe_api"]').length > 0
+      ).toBe(true);
     });
 
     describe("YouTube API loads", function(){
