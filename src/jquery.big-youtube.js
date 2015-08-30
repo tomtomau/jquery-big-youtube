@@ -84,19 +84,14 @@
 
         var settings = $.extend({
             videoId: 'ZCAnLxRvNNc',
-            mute: true,
-
+            mute: true
         }, options);
 
         this.each(function(){
-            var $videoTarget = $(this),
-                targetId = $videoTarget.attr('id');
+            var $videoTarget = $(this);
 
-            // Create a random id if not already created
-            if (typeof $videoTarget.attr('id') == 'undefined'){
-                targetId = "bigYouTube" + Date.now().toString() + Math.floor((5 * Math.random()));
-                $videoTarget.attr('id', targetId);
-            }
+            var targetId = "bigYouTube" + Date.now().toString() + Math.floor((5 * Math.random()));
+            $videoTarget.append('<div class="bigyoutube-inner" id="'+ targetId + '"></div>');
 
             createPlayer(targetId);
         });

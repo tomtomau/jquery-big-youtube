@@ -24,7 +24,7 @@ describe("Basic plugin bootstrapping", function(){
   describe("YouTube API", function(){
     singleIdTargetSandbox({
       id: 'bootstrap-target'
-    });
+    })();
 
     // Instantiate Big Youtube
     $("#bootstrap-target").bigYouTube();
@@ -35,6 +35,12 @@ describe("Basic plugin bootstrapping", function(){
         $('script[src="http://www.youtube.com/iframe_api"]').length > 0 ||
         $('script[src="https://www.youtube.com/iframe_api"]').length > 0
       ).toBe(true);
+    });
+
+    it("bigYouTube creates an .bigyoutube-inner", function(){
+      expect(
+        $('#bootstrap-target > .bigyoutube-inner').length > 0
+      ).toBe(true)
     });
 
     describe("YouTube API loads", function(){
@@ -85,7 +91,7 @@ describe("Single Id Target", function(){
     describe("builds player", function(){
       beforeEach(function(done){
         var intervalId = setInterval(function(){
-          if($('#' + testTargetId).is('iframe')){
+          if($('#' + testTargetId).find('iframe').length){
             clearInterval(intervalId);
             done();
           }
@@ -93,7 +99,7 @@ describe("Single Id Target", function(){
       });
 
       it("replaces target with iframe", function(){
-        expect($('#' + testTargetId).is('iframe')).toBe(true);
+        expect($('#' + testTargetId).find('iframe').length > 0).toBe(true);
       });
 
       // @TODO: Can we investigate if this works any further?
